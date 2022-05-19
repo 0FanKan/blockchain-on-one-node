@@ -11,7 +11,7 @@ for_data_block = ""
 templates = Jinja2Templates(directory="templates/")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 try:
-    connect = psycopg2.connect("dbname=BChain user=sensei")
+    connect = psycopg2.connect("dbname=BChain user={user_name} password={pass_db}")
     connect.autocommit = True
     cur = connect.cursor()
     cur.execute("DROP TABLE chain")
